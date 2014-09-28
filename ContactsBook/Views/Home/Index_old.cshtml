@@ -1,0 +1,103 @@
+﻿@using ContactsBook.Models
+@model UserContactsModel
+@{
+    ViewBag.Title = "Contacts";
+}
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-md-2">
+        <input type="text" id="groupsFilter" class="form-control" />
+        <ul id="groupsList" class="ul-without-bullets">
+            <div id="checkboxes-column"></div>
+            @if (Model != null)
+            {
+                foreach (var c in Model.Groups)
+                {
+                    <li>
+                        <label> <input id="@c" type="checkbox"> @string.Format("{0}", c)</label>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-3">
+        <input type="text" id="contactsFilter" class="form-control" />
+        <table id="contactsList" class="table table-condensed">
+            @if (Model != null)
+            {
+                foreach (var c in Model.Contacts)
+                {
+                    <tr>
+                        <td width="90%"> 
+                            @Ajax.ActionLink(string.Format("{0} {1} [{2}]", c.FirstName, c.SecondName, c.ContactsGroup), "EditContact", new ContactEditModel
+                            {
+                                UserId = Model.Id,
+                                FirstName = c.FirstName,
+                                Id = c.Id,
+                                SecondName = c.SecondName
+                            }, new AjaxOptions() { UpdateTargetId = "contactDetails" }, new { })
+                        </td>
+                        <td width="10%">
+                            <a class="remove-user-button" href=@Url.Action("Remove", "Home", new ContactEditModel
+                                               {
+                                                   FirstName = c.FirstName,
+                                                   SecondName = c.SecondName,
+                                                   Id = c.Id,
+                                                   UserId = Model.Id,
+                                                   ContactGroup = c.ContactsGroup
+                                               })>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <div id="contactDetails" class="col-md-7">
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#contactsFilter").keyup(function () {
+                var rows = $("#contactsList").find("tr").hide();
+                var data = this.value.split(" ");
+                $.each(data, function (i, v) {
+                    rows.filter(":contains('" + v + "')").show();
+                });
+            });
+        });
+
+        $(function() {
+            $("groupsList").click(function () {
+            });
+        });
+
+        $(function() {
+            $("#checkboxes-column :checkbox").each(function () {
+
+                var groupChecked = this.checked;
+                var group = this.id;
+
+                var rows = $("#contactsList").find("tr");
+
+                $.each(rows, function (i, v) {
+                    if (rows[i].contains("[" + group + "]")) {
+                        if (groupChecked) {
+                            rows[i].show();
+                        } else {
+                            rows[i].hide();
+                        }
+                    }
+                });
+
+            });
+        });
+    </script>
+</div>
