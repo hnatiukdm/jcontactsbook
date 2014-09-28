@@ -1,0 +1,183 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 2em;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.ul-without-bullets {
+    list-style-type: none;
+}
+
+#show-hide-contacts-list {
+    width: 40%;
+}
+
+
+a.remove-user-button
+{
+     background: url(http://icons.iconarchive.com/icons/icojam/onebit/16/minus-icon.png) no-repeat top left;
+     display: block;
+     width: 16px;
+     height: 16px;
+     text-indent: -9999px; /* hides the link text */
+}
+
+a.add-user-button
+{
+     background: url(http://icons.iconarchive.com/icons/pixelmixer/basic/16/plus-icon.png) no-repeat top left;
+     display: block;
+     width: 16px;
+     height: 16px;
+     text-indent: -9999px; /* hides the link text */
+}
+
+.contact-link {
+    color: #b3f151;
+    text-decoration: none;
+}
+
+
+#contacts-block {
+    padding: 0.3em;
+    position: absolute;
+    left: 0;
+    width: 15em;
+}
+
+#contactsList {
+    display: table;
+    width: 100%;
+}
+
+#contactsList thead, #contactsList tbody {
+        float: left;
+        width: 100%;
+    }
+
+#contactsList tbody {
+        overflow: auto;
+        height: 40em;
+    }
+
+#contactsList tr {
+        width: 100%;
+        display: table;
+        text-align: left;
+}
+
+
+#single-contact-block {
+    padding: 0.3em;
+    margin-right: 30em;
+    margin-bottom: 0px;
+    margin-left: 200px;
+}
+
+#groupsList {
+    width: 100%;
+}
+
+#contacts-groups {
+    width: 100%;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+#show-hide-groups:hover, #show-hide-contacts-list:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
