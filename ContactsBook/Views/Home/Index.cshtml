@@ -137,9 +137,7 @@
     $(function() {
         $('#removeGroup').click(function() {
             var id = $("#groupsList").find(":selected").attr('value');
-
-            alert(id);
-            
+    
             $.post("@Url.Action("RemoveGroup", "Home")/"+id,function(data){
        
             });
