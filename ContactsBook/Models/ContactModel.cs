@@ -27,7 +27,7 @@ namespace ContactsBook.Models
         [RegularExpression("^([0-9_ -\\+])+$", ErrorMessage = "Phone number is not valid")]
         public String Number { get; set; }
 
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [EmailAddress(ErrorMessage = "Email address is not valid")]
         public String Email { get; set; }
 
     }
