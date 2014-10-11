@@ -23,7 +23,11 @@ namespace ContactsBook.Models
         public int ContactGroupId { get; set; }
         public string AwailableGroups { get; set; }
         public String Address { get; set; }
+
+        [RegularExpression("^([0-9_ -\\+])+$", ErrorMessage = "Phone number is not valid")]
         public String Number { get; set; }
+
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public String Email { get; set; }
 
     }
